@@ -5,7 +5,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 function ChartPage() {
   const data = {
-    labels: ["Red", "Blue", "Yellow"], // Categories/segments of the doughnut
+    labels: ["Red", "Blue", "Yellow"],
     datasets: [
       {
         label: "My First Dataset",
