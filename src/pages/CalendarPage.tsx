@@ -19,14 +19,6 @@ interface StatisticsData {
   games: number;
 }
 
-interface EventFromAPI {
-  _id: string;
-  title: string;
-  date: Date;
-  location: LocationData;
-  statistics: StatisticsData;
-}
-
 interface CalendarEvent {
   id: string;
   title: string;
@@ -43,7 +35,12 @@ function CalendarPage() {
   useEffect(() => {
     const getEvents = async () => {
       try {
-        const eventsData: EventFromAPI[] = await fetchEvents();
+        const eventsData = await fetchEvents();
+
+        if (!Array.isArray(eventsData)) {
+          console.error("API returned non-array data:", eventsData);
+          return;
+        }
 
         const calendarEvents: CalendarEvent[] = eventsData.map((ev) => ({
           id: ev._id,
@@ -54,21 +51,29 @@ function CalendarPage() {
             statistics: ev.statistics,
           },
         }));
+
         setEvents(calendarEvents);
       } catch (err) {
-        console.error(err);
+        console.error("Error fetching events:", err);
       }
     };
+
     getEvents();
   }, []);
 
   return (
-    <div style={{ width: "500px", height: "100hv" }}>
+    <div style={{ maxWidth: "600px", height: "100hv" }}>
       <FullCalendar
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
-        weekends={false}
+        weekends={true}
         events={events}
+        eventClick={(info) => {
+          const location = info.event.extendedProps.location;
+          alert(
+            `Event: ${info.event.title}, Date: ${info.event.start}, Location: ${location.name}`
+          );
+        }}
       />
     </div>
   );
