@@ -12,7 +12,7 @@ function ChartPage() {
 
   const locationCounts: Record<string, number> = events.reduce(
     (acc: Record<string, number>, event: CalendarEvent) => {
-      const locationName = event.extendedProps.location.name;
+      const locationName = event.location.name;
       if (locationName) {
         acc[locationName] = (acc[locationName] || 0) + 1;
       }

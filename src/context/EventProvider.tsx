@@ -19,10 +19,11 @@ export const EventProvider = ({ children }: { children: React.ReactNode }) => {
         id: ev._id,
         title: ev.title,
         date: ev.date.toString(),
-        extendedProps: {
-          location: ev.location,
-          statistics: ev.statistics,
-        },
+
+        location: ev.location,
+        statistics: ev.statistics,
+        type: ev.type,
+        format: ev.format,
       }));
 
       console.log("refreshed events...blablablbalbal");

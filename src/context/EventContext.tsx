@@ -20,10 +20,12 @@ export interface CalendarEvent {
   id: string;
   title: string;
   date: string;
-  extendedProps: {
-    location: LocationData;
-    statistics: StatisticsData;
-  };
+
+  location: LocationData;
+  statistics: StatisticsData;
+
+  type: string;
+  format: string;
 }
 
 export interface EventsType {

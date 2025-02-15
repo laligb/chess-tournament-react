@@ -20,7 +20,7 @@ function TournamentTable() {
             <tr key={event.id}>
               <td>{event.title}</td>
               <td>{new Date(event.date).toLocaleDateString()}</td>
-              <td>{event.extendedProps.location.name}</td>
+              <td>{event.location.name}</td>
             </tr>
           ))}
         </tbody>
