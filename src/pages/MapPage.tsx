@@ -80,7 +80,7 @@ function MapPage() {
       <div
         id="map-container"
         ref={mapContainerRef}
-        style={{ width: "700px", height: "400px" }}
+        style={{ height: "100vh" }}
       />
     </div>
   );

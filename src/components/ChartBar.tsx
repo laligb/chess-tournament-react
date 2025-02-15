@@ -83,8 +83,8 @@ function ChartBar(): JSX.Element {
   };
 
   return (
-    <div style={{ width: "600px", margin: "0 auto", paddingTop: "20px" }}>
-      <h2 className="text-center">Tournament Distribution (Bar Chart)</h2>
+    <div className="mt-5">
+      <h2 className="text-center">Tournament Distribution</h2>
       <Bar data={data} options={options} />
     </div>
   );

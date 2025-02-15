@@ -13,6 +13,8 @@ function TournamentTable() {
             <th>Title</th>
             <th>Date</th>
             <th>Location</th>
+            <th>Type</th>
+            <th>Format</th>
           </tr>
         </thead>
         <tbody>
@@ -21,6 +23,8 @@ function TournamentTable() {
               <td>{event.title}</td>
               <td>{new Date(event.date).toLocaleDateString()}</td>
               <td>{event.location.name}</td>
+              <td>{event.type}</td>
+              <td>{event.format}</td>
             </tr>
           ))}
         </tbody>
