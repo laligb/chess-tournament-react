@@ -40,8 +40,19 @@ export const EventProvider = ({ children }: { children: React.ReactNode }) => {
       await axios.put(`http://localhost:5000/api/events/${id}`, updates);
 
       await refreshEvents();
-    } catch (error) {
-      console.error("Error updating event:", error);
+    } catch (err) {
+      console.error("Error updating event:", err);
+    }
+  };
+
+  const deleteEvent = async (id: string, deletes: Partial<CalendarEvent>) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/events/${id}`, {
+        data: deletes,
+      });
+      await refreshEvents();
+    } catch (err) {
+      console.error("Error deleting event:", err);
     }
   };
 
@@ -49,7 +60,7 @@ export const EventProvider = ({ children }: { children: React.ReactNode }) => {
     refreshEvents();
   }, []);
 
-  const value: EventsType = { events, refreshEvents, updateEvent };
+  const value: EventsType = { events, refreshEvents, updateEvent, deleteEvent };
   return (
     <EventContext.Provider value={value}>{children}</EventContext.Provider>
   );

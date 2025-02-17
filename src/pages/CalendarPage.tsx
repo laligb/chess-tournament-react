@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import { EventApi, EventClickArg } from "fullcalendar/index.js";
 
 function CalendarPage() {
-  const { events, updateEvent } = useContext(EventContext);
+  const { events, updateEvent, deleteEvent } = useContext(EventContext);
   const [openPopup, setOpenPopup] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<EventApi | null>(null);
   const [title, setTitle] = useState("");
@@ -35,6 +35,16 @@ function CalendarPage() {
 
   const handleClose = () => {
     setOpenPopup(false);
+  };
+
+  const handleDeleteEvent = async () => {
+    if (!selectedEvent) return;
+    try {
+      await deleteEvent(selectedEvent.id, {});
+      setOpenPopup(false);
+    } catch (err) {
+      console.error("Error deleting event:", err);
+    }
   };
 
   return (
@@ -83,6 +93,9 @@ function CalendarPage() {
             </Button>
             <Button type="submit" variant="primary">
               Save Changes
+            </Button>
+            <Button type="submit" variant="danger" onClick={handleDeleteEvent}>
+              Delete event
             </Button>
           </Modal.Footer>
         </form>
