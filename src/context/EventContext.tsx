@@ -31,9 +31,11 @@ export interface CalendarEvent {
 export interface EventsType {
   events: CalendarEvent[];
   refreshEvents: () => void;
+  updateEvent: (id: string, updates: Partial<CalendarEvent>) => Promise<void>;
 }
 
 export const EventContext = createContext<EventsType>({
   events: [],
   refreshEvents: () => {},
+  updateEvent: async () => {},
 });

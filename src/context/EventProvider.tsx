@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { CalendarEvent, EventContext, EventsType } from "./EventContext";
 import { fetchEvents } from "../service/eventService";
+import axios from "axios";
 
 export const EventProvider = ({ children }: { children: React.ReactNode }) => {
   const [events, setEvents] = useState<CalendarEvent[]>([]);
@@ -34,11 +35,21 @@ export const EventProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  const updateEvent = async (id: string, updates: Partial<CalendarEvent>) => {
+    try {
+      await axios.put(`http://localhost:5000/api/events/${id}`, updates);
+
+      await refreshEvents();
+    } catch (error) {
+      console.error("Error updating event:", error);
+    }
+  };
+
   useEffect(() => {
     refreshEvents();
   }, []);
 
-  const value: EventsType = { events, refreshEvents };
+  const value: EventsType = { events, refreshEvents, updateEvent };
   return (
     <EventContext.Provider value={value}>{children}</EventContext.Provider>
   );
