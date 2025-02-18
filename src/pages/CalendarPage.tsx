@@ -16,7 +16,6 @@ function CalendarPage() {
     setSelectedEvent(info.event);
     setTitle(info.event.title);
     setOpenPopup(true);
-    console.log("Updating event with id:", selectedEvent?.id);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

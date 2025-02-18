@@ -7,7 +7,6 @@ export const EventProvider = ({ children }: { children: React.ReactNode }) => {
   const [events, setEvents] = useState<CalendarEvent[]>([]);
 
   const refreshEvents = async () => {
-    console.log("Refreshing events...blablablbalbal");
     try {
       const eventsData = await fetchEvents();
 
@@ -26,8 +25,6 @@ export const EventProvider = ({ children }: { children: React.ReactNode }) => {
         type: ev.type,
         format: ev.format,
       }));
-
-      console.log("refreshed events...blablablbalbal");
 
       setEvents(calendarEvents);
     } catch (err) {
