@@ -1,5 +1,4 @@
 import ChartBar from "../components/ChartBar";
-import TournamentTable from "../components/TournamentTable";
 
 function HomePage() {
   return (
