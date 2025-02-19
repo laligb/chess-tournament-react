@@ -11,8 +11,6 @@ The Chess Tournament React Application is designed to help users browse and part
 ## ✨ Features
 
 - 📅 **Tournament Listings** – Browse upcoming and ongoing tournaments.
-- 🏅 **Registration System** – Sign up and join competitions.
-- 👤 **User Profiles** – Manage personal details and track tournament performance.
 - 📊 **Statistics & Charts** – Visualize tournament progress.
 - 🗺️ **Map Integration** – Locate tournament venues via Mapbox.
 - 📆 **FullCalendar Support** – View schedules in an interactive calendar.
