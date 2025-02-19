@@ -19,7 +19,7 @@ function CheckBox({
           top: 10,
           left: 10,
           background: "#fff",
-          padding: "10px",
+          padding: "20px",
           borderRadius: "4px",
           zIndex: 1,
         }}

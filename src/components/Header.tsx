@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import logoImage from "../assets/chesslogo.png";
 
 function Header() {
   return (
     <div>
-      <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
+      <nav className="navbar navbar-dark navbar-expand-lg bg-black">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            LOGO
+          <a className="navbar-brand" href="/">
+            <img src={logoImage} alt="Company Logo" style={{ width: 50 }} />
           </a>
           <button
             className="navbar-toggler"

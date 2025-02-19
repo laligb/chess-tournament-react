@@ -36,7 +36,7 @@ function MapPage() {
         container: mapContainerRef.current,
         center: [2.3522, 48.8566],
         style: "mapbox://styles/mapbox/streets-v11",
-        zoom: 3,
+        zoom: 5,
       });
 
       eventsLocation.forEach((marker) => {

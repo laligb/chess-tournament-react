@@ -1,50 +1,84 @@
-# React + TypeScript + Vite
+# Chess Tournament React Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌍 Live Demo
 
-Currently, two official plugins are available:
+[🚀 **View the Live App**](https://chess-tournament-react.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🏆 Overview
 
-## Expanding the ESLint configuration
+The Chess Tournament React Application is designed to help users browse and participate in various chess tournaments. Built with React and TypeScript, this application offers a seamless and interactive experience for chess enthusiasts.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## ✨ Features
 
-- Configure the top-level `parserOptions` property like this:
+- 📅 **Tournament Listings** – Browse upcoming and ongoing tournaments.
+- 🏅 **Registration System** – Sign up and join competitions.
+- 👤 **User Profiles** – Manage personal details and track tournament performance.
+- 📊 **Statistics & Charts** – Visualize tournament progress.
+- 🗺️ **Map Integration** – Locate tournament venues via Mapbox.
+- 📆 **FullCalendar Support** – View schedules in an interactive calendar.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🛠 Technologies Used
+
+- **Frontend:** React 19, TypeScript, Vite
+- **Routing:** React Router v6
+- **State Management:** (Specify if using Redux or Context API)
+- **Styling:** Bootstrap 5, React-Bootstrap
+- **Data Fetching:** Axios
+- **Calendar Integration:** FullCalendar
+- **Charts:** Chart.js, React-ChartJS-2
+- **Maps:** Mapbox GL
+
+## 🚀 Installation Guide
+
+To run this project locally, follow these steps:
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/laligb/chess-tournament-react.git
+   cd chess-tournament-react
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**:
+
+   Create a `.env` file in the root directory and add necessary environment variables. Refer to `.env.example` for required variables.
+
+4. **Start the development server**:
+
+   ```bash
+   npm run dev
+   ```
+
+   The application should now be running on `http://localhost:5173`.
+
+## 📜 Scripts
+
+- **Start Development Server**: `npm run dev`
+- **Build for Production**: `npm run build`
+- **Preview Production Build**: `npm run preview`
+- **Lint Code**: `npm run lint`
+
+## 📂 Folder Structure
+
 ```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+chess-tournament-react/
+├── public/                 # Static assets
+├── src/
+│   ├── components/         # Reusable components
+│   ├── pages/              # Page components
+│   ├── services/           # API calls and services
+│   ├── styles/             # Styling files
+│   ├── App.tsx             # Root component
+│   └── main.tsx            # Entry point
+├── .env                    # Environment variables
+├── .gitignore              # Git ignore file
+├── package.json            # NPM package configuration
+├── tsconfig.json           # TypeScript configuration
+└── vite.config.ts          # Vite configuration
 ```
