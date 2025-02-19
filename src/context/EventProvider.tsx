@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { CalendarEvent, EventContext, EventsType } from "./EventContext";
 import { fetchEvents } from "../service/eventService";
-import axios from "axios";
+
+import {
+  updateEvent as apiUpdateEvent,
+  deleteEvent as apiDeleteEvent,
+} from "../api/eventApi";
 
 export const EventProvider = ({ children }: { children: React.ReactNode }) => {
   const [events, setEvents] = useState<CalendarEvent[]>([]);
@@ -34,19 +38,16 @@ export const EventProvider = ({ children }: { children: React.ReactNode }) => {
 
   const updateEvent = async (id: string, updates: Partial<CalendarEvent>) => {
     try {
-      await axios.put(`http://localhost:5000/api/events/${id}`, updates);
-
+      await apiUpdateEvent(id, updates);
       await refreshEvents();
     } catch (err) {
       console.error("Error updating event:", err);
     }
   };
 
-  const deleteEvent = async (id: string, deletes: Partial<CalendarEvent>) => {
+  const deleteEvent = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:5000/api/events/${id}`, {
-        data: deletes,
-      });
+      await apiDeleteEvent(id);
       await refreshEvents();
     } catch (err) {
       console.error("Error deleting event:", err);

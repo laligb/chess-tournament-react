@@ -1,10 +1,9 @@
 import axios from "axios";
 import { CalendarEvent } from "../context/EventContext";
 
-// axios.defaults.headers.common["Content-Type"] = "application/json";
+axios.defaults.headers.common["Content-Type"] = "application/json";
 
-const API_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:5000/api/events";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const getEvents = async (): Promise<Event> => {
   return axios
